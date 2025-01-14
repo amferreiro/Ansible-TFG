@@ -1,0 +1,95 @@
+{% set ip_calculada = deploy_ip[2] ~ "." ~ deploy_ip[3] %}
+auto lo
+iface lo inet loopback
+
+auto ens5f0
+iface ens5f0 inet manual
+
+auto ens5f1
+iface ens5f1 inet manual
+
+auto ens6f0
+iface ens6f0 inet manual
+
+auto ens6f1
+iface ens6f1 inet manual
+
+auto bond0
+iface bond0 inet manual
+        bond-slaves ens5f0 ens5f1
+        bond-miimon 100
+        bond-mode 802.3ad
+        bond-xmit-hash-policy layer2+3
+        mtu 9000
+
+auto bond1
+iface bond1 inet manual
+        bond-slaves ens6f0 ens6f1
+        bond-miimon 100
+        bond-mode 802.3ad
+        bond-xmit-hash-policy layer2+3
+        mtu 9000
+
+auto bond0.12
+iface bond0.12 inet manual
+        mtu 1500
+
+auto bond1.17
+iface bond1.17 inet manual
+        mtu 9000
+
+auto bond0.1200
+iface bond0.1200 inet manual
+
+auto bond0.1595
+iface bond0.1595 inet manual
+
+auto bond0.2012
+iface bond0.2012 inet manual
+
+auto bond0.2112
+iface bond0.2112 inet manual
+
+auto vmbr12
+iface vmbr12 inet static
+        address 10.12.{{ ip_calculada }}/16
+        gateway 10.12.254.2
+        bridge-ports bond0.12
+        bridge-stp off
+        bridge-fd 0
+
+auto vmbr17
+iface vmbr17 inet static
+        address 10.17.{{ ip_calculada }}/16
+        bridge-ports bond1.17
+        bridge-stp off
+        bridge-fd 0
+        mtu 9000
+
+auto vmbr1200
+iface vmbr1200 inet manual
+     	bridge-ports bond0.1200
+    	bridge-stp off
+    	bridge-fd 0
+
+auto vmbr1595
+iface vmbr1595 inet manual
+     	bridge-ports bond0.1595
+    	bridge-stp off
+    	bridge-fd 0
+        post-up /usr/sbin/ebtables -A FORWARD --logical-in vmbr1595 -p arp --arp-ip-src 172.18.0.1 -s 00:09:0f:09:02:0e -j ACCEPT
+        post-up /usr/sbin/ebtables -A FORWARD --logical-in vmbr1595 -p arp --arp-ip-dst 172.18.0.1 -j ACCEPT
+        post-up /usr/sbin/ebtables -A FORWARD --logical-in vmbr1595 -p arp -j DROP
+
+auto vmbr2012
+iface vmbr2012 inet manual
+     	bridge-ports bond0.2012
+    	bridge-stp off
+    	bridge-fd 0
+
+auto vmbr2112
+iface vmbr2112 inet manual
+    	bridge-ports bond0.2112
+    	bridge-stp off
+    	bridge-fd 0
+

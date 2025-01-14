@@ -1,0 +1,6 @@
+common_packages:
+  - vim
+  - nmon
+  - ifupdown2
+  - ethtool
+  - libproxmox-rs-perl 

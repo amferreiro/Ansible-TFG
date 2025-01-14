@@ -1,0 +1,93 @@
+- name: Copy /etc/hosts file
+  copy:
+    src: "files/hosts"
+    dest: "/etc/hosts"
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Configurar hostname
+  hostname:
+    name: "{{ inventory_hostname }}"
+
+- name: Get deploy IP
+  set_fact:
+    deploy_ip: "{{ lookup('dig', ansible_host).split('.') }}"
+
+- name: Create network config files
+  template:
+    src: "templates/pve{{ pve_version }}-interfaces"
+    dest: "/etc/network/interfaces"
+    owner: root
+    group: root
+    mode: "u=rw,g=r,o=r"
+  register: interfaces
+  notify:
+    - reload networking
+
+- name: Limit to 128 NFS NetApp Slots entries
+  lineinfile:
+    path: "/etc/modprobe.d/sunrpc.conf"
+    create: yes
+    state: present
+    regexp: '^options sunrpc tcp_max_slot_table_entries=128'
+    line: "options sunrpc tcp_max_slot_table_entries=128"
+  register: nfs_netapp_tunning
+
+- name: install chrony package
+  apt:
+    name: chrony
+    state: present
+    update_cache: yes 
+    allow_unauthenticated: yes
+
+- name: Configurar NTP (Chrony)
+  lineinfile:
+    path: "/etc/chrony/sources.d/local-ntp-server.sources"
+    state: present
+    create: true
+    regexp: "^server {{ item }} iburst"
+    line: "server {{ item }} iburst"
+  loop:
+    "{{ services.ntp.servers }}"
+  notify:
+    - restart chrony
+
+- name: Configuar mail client
+  lineinfile:
+    path: "/etc/postfix/main.cf"
+    state: present
+    regexp: '^relayhost ='
+    line: "relayhost = {{ services.mail.relay }}"
+  notify:
+    - restart postfix
+
+- name: Change hostname in mail server (main.cf)
+  lineinfile:
+    path: /etc/postfix/main.cf
+    state: present
+    regexp: "^myhostname="
+    line:  "myhostname={{ ansible_host }}"
+  notify:
+    - restart postfix
+    - new aliases
+
+- name: Añadir alias de root
+  lineinfile:
+    path: "/etc/aliases"
+    state: present
+    regexp: '^{{ item }}'
+    line: "{{ item }}"
+  loop:
+    "{{ services.mail.aliases }}"
+  notify:
+    - new aliases
+    - restart postfix
+
+- name: Reiniciar nodo despues de configurar los bond
+  reboot:
+  when: (interfaces.changed or nfs_netapp_tunning.changed) and installing_node is defined
+  register: network_booted
+
+- name: Force all notified handlers to run
+  meta: flush_handlers

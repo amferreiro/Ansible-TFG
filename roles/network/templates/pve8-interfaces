@@ -1,0 +1,164 @@
+{% set ip_calculada = deploy_ip[2] ~ "." ~ deploy_ip[3] %}
+auto lo
+iface lo inet loopback
+
+{% for bond in bonds %}{% for interface in bond.interfaces %}
+auto {{ interface }}
+iface {{ interface }} inet manual
+
+{% endfor %}{% endfor %}
+{% for bond in bonds %}
+auto {{ bond.name }}
+iface {{ bond.name }} inet manual
+        bond-slaves{% for interface in bond.interfaces %} {{ interface }}{% endfor %}
+
+        bond-miimon 100
+        bond-mode 802.3ad
+        bond-xmit-hash-policy layer2+3
+        mtu 9000
+
+{% endfor %}
+auto bond0.12
+iface bond0.12 inet manual
+        mtu 1500
+
+auto bond1.17
+iface bond1.17 inet manual
+        mtu 9000
+
+auto bond0.1200
+iface bond0.1200 inet manual
+
+auto bond0.1595
+iface bond0.1595 inet manual
+
+auto bond0.1596
+iface bond0.1596 inet manual
+
+auto bond0.1597
+iface bond0.1597 inet manual
+
+auto bond0.2012
+iface bond0.2012 inet manual
+
+auto bond0.2112
+iface bond0.2112 inet manual
+
+auto vmbr12
+iface vmbr12 inet static
+        address 10.12.{{ ip_calculada }}/16
+        gateway 10.12.254.2
+        bridge-ports bond0.12
+        bridge-stp off
+        bridge-fd 0
+
+auto vmbr17
+iface vmbr17 inet static
+        address 10.17.{{ ip_calculada }}/16
+        bridge-ports bond1.17
+        bridge-stp off
+        bridge-fd 0
+        mtu 9000
+
+auto vmbr1200
+iface vmbr1200 inet manual
+     	bridge-ports bond0.1200
+    	bridge-stp off
+    	bridge-fd 0
+
+auto vmbr1595
+iface vmbr1595 inet manual
+     	bridge-ports bond0.1595
+    	bridge-stp off
+    	bridge-fd 0
+
+        #### CLEAN HYPERVISOR FIREWALL VDI RULES
+
+        pre-up /usr/sbin/ebtables -D FORWARD --logical-in vmbr1595 -p arp -j DROP
+
+        {% for host in host_allowed -%}
+        ## {{ host.desc }}
+        pre-up /usr/sbin/ebtables -D FORWARD --logical-in vmbr1595 -p arp --arp-ip-src {{ host.ip }} -s {{ host.mac }} -j ACCEPT 
+        pre-up /usr/sbin/ebtables -D FORWARD --logical-in vmbr1595 -p arp --arp-ip-dst {{ host.ip }} -j ACCEPT
+
+        {% endfor -%}
+
+
+        ## HYPERVISOR FIREWALL VDI RULES
+
+        {% for host in host_allowed -%}
+        ## {{ host.desc }}
+        post-up /usr/sbin/ebtables -A FORWARD --logical-in vmbr1595 -p arp --arp-ip-src {{ host.ip }} -s {{ host.mac }} -j ACCEPT 
+        post-up /usr/sbin/ebtables -A FORWARD --logical-in vmbr1595 -p arp --arp-ip-dst {{ host.ip }} -j ACCEPT
+
+        {% endfor -%}
+        post-up /usr/sbin/ebtables -A FORWARD --logical-in vmbr1595 -p arp -j DROP
+
+auto vmbr1596
+iface vmbr1596 inet manual
+     	bridge-ports bond0.1596
+    	bridge-stp off
+    	bridge-fd 0
+
+        #### CLEAN HYPERVISOR FIREWALL VDI-ADMIN RULES
+
+        pre-up /usr/sbin/ebtables -D FORWARD --logical-in vmbr1596 -p arp -j DROP
+
+        {% for host in host_allowed_administracion -%}
+        ## {{ host.desc }}
+        pre-up /usr/sbin/ebtables -D FORWARD --logical-in vmbr1596 -p arp --arp-ip-src {{ host.ip }} -s {{ host.mac }} -j ACCEPT 
+        pre-up /usr/sbin/ebtables -D FORWARD --logical-in vmbr1596 -p arp --arp-ip-dst {{ host.ip }} -j ACCEPT
+
+        {% endfor -%}
+
+
+        ## HYPERVISOR FIREWALL VDI-ADMIN RULES
+
+        {% for host in host_allowed_administracion -%}
+        ## {{ host.desc }}
+        post-up /usr/sbin/ebtables -A FORWARD --logical-in vmbr1596 -p arp --arp-ip-src {{ host.ip }} -s {{ host.mac }} -j ACCEPT 
+        post-up /usr/sbin/ebtables -A FORWARD --logical-in vmbr1596 -p arp --arp-ip-dst {{ host.ip }} -j ACCEPT
+
+        {% endfor -%}
+        post-up /usr/sbin/ebtables -A FORWARD --logical-in vmbr1596 -p arp -j DROP
+
+auto vmbr1597
+iface vmbr1597 inet manual
+     	bridge-ports bond0.1597
+    	bridge-stp off
+    	bridge-fd 0
+
+        #### CLEAN HYPERVISOR FIREWALL VDI RULES
+
+        pre-up /usr/sbin/ebtables -D FORWARD --logical-in vmbr1597 -p arp -j DROP
+
+        {% for host in host_allowed_exam -%}
+        ## {{ host.desc }}
+        pre-up /usr/sbin/ebtables -D FORWARD --logical-in vmbr1597 -p arp --arp-ip-src {{ host.ip }} -s {{ host.mac }} -j ACCEPT 
+        pre-up /usr/sbin/ebtables -D FORWARD --logical-in vmbr1597 -p arp --arp-ip-dst {{ host.ip }} -j ACCEPT
+
+        {% endfor -%}
+
+
+        ## HYPERVISOR FIREWALL VDI RULES
+
+        {% for host in host_allowed_exam -%}
+        ## {{ host.desc }}
+        post-up /usr/sbin/ebtables -A FORWARD --logical-in vmbr1597 -p arp --arp-ip-src {{ host.ip }} -s {{ host.mac }} -j ACCEPT 
+        post-up /usr/sbin/ebtables -A FORWARD --logical-in vmbr1597 -p arp --arp-ip-dst {{ host.ip }} -j ACCEPT
+
+        {% endfor -%}
+        post-up /usr/sbin/ebtables -A FORWARD --logical-in vmbr1597 -p arp -j DROP
+
+auto vmbr2012
+iface vmbr2012 inet manual
+     	bridge-ports bond0.2012
+    	bridge-stp off
+    	bridge-fd 0
+
+auto vmbr2112
+iface vmbr2112 inet manual
+    	bridge-ports bond0.2112
+    	bridge-stp off
+    	bridge-fd 0
+

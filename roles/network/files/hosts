@@ -1,0 +1,205 @@
+127.0.0.1 localhost.localdomain localhost
+
+# The following lines are desirable for IPv6 capable hosts
+::1     ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+ff02::3 ip6-allhosts
+
+
+10.12.21.1 vdi1n1.hyper.lan vdi1n1
+10.12.21.2 vdi1n2.hyper.lan vdi1n2
+10.12.21.3 vdi1n3.hyper.lan vdi1n3
+10.12.21.4 vdi1n4.hyper.lan vdi1n4
+10.12.21.5 vdi1n5.hyper.lan vdi1n5
+10.12.21.6 vdi1n6.hyper.lan vdi1n6
+10.12.21.7 vdi1n7.hyper.lan vdi1n7
+10.12.21.8 vdi1n8.hyper.lan vdi1n8
+10.12.21.9 vdi1n9.hyper.lan vdi1n9
+10.12.21.10 vdi1n10.hyper.lan vdi1n10
+10.12.21.11 vdi1n11.hyper.lan vdi1n11
+10.12.21.12 vdi1n12.hyper.lan vdi1n12
+10.12.21.13 vdi1n13.hyper.lan vdi1n13
+10.12.21.14 vdi1n14.hyper.lan vdi1n14
+10.12.21.15 vdi1n15.hyper.lan vdi1n15
+10.12.21.16 vdi1n16.hyper.lan vdi1n16
+10.12.21.17 vdi1n17.hyper.lan vdi1n17
+10.12.21.18 vdi1n18.hyper.lan vdi1n18
+10.12.21.19 vdi1n19.hyper.lan vdi1n19
+10.12.21.20 vdi1n20.hyper.lan vdi1n20
+10.12.21.21 vdi1n21.hyper.lan vdi1n21
+10.12.21.22 vdi1n22.hyper.lan vdi1n22
+10.12.21.23 vdi1n23.hyper.lan vdi1n23
+10.12.21.24 vdi1n24.hyper.lan vdi1n24
+10.12.21.25 vdi1n25.hyper.lan vdi1n25
+10.12.21.26 vdi1n26.hyper.lan vdi1n26
+10.12.21.27 vdi1n27.hyper.lan vdi1n27
+10.12.21.28 vdi1n28.hyper.lan vdi1n28
+10.12.21.29 vdi1n29.hyper.lan vdi1n29
+10.12.21.30 vdi1n30.hyper.lan vdi1n30
+10.12.21.31 vdi1n31.hyper.lan vdi1n31
+10.12.21.32 vdi1n32.hyper.lan vdi1n32
+10.12.21.33 vdi1n33.hyper.lan vdi1n33
+10.12.21.34 vdi1n34.hyper.lan vdi1n34
+10.12.21.35 vdi1n35.hyper.lan vdi1n35
+10.12.21.36 vdi1n36.hyper.lan vdi1n36
+10.12.21.37 vdi1n37.hyper.lan vdi1n37
+10.12.21.38 vdi1n38.hyper.lan vdi1n38
+10.12.21.39 vdi1n39.hyper.lan vdi1n39
+10.12.21.40 vdi1n40.hyper.lan vdi1n40
+10.12.21.41 vdi1n41.hyper.lan vdi1n41
+10.12.21.42 vdi1n42.hyper.lan vdi1n42
+10.12.21.43 vdi1n43.hyper.lan vdi1n43
+10.12.21.44 vdi1n44.hyper.lan vdi1n44
+10.12.21.45 vdi1n45.hyper.lan vdi1n45
+10.12.21.46 vdi1n46.hyper.lan vdi1n46
+10.12.21.47 vdi1n47.hyper.lan vdi1n47
+10.12.21.48 vdi1n48.hyper.lan vdi1n48
+10.12.22.1 vdi2n1.hyper.lan vdi2n1
+10.12.22.2 vdi2n2.hyper.lan vdi2n2
+10.12.22.3 vdi2n3.hyper.lan vdi2n3
+10.12.22.4 vdi2n4.hyper.lan vdi2n4
+10.12.22.5 vdi2n5.hyper.lan vdi2n5
+10.12.22.6 vdi2n6.hyper.lan vdi2n6
+10.12.22.7 vdi2n7.hyper.lan vdi2n7
+10.12.22.8 vdi2n8.hyper.lan vdi2n8
+10.12.22.9 vdi2n9.hyper.lan vdi2n9
+10.12.22.10 vdi2n10.hyper.lan vdi2n10
+10.12.22.11 vdi2n11.hyper.lan vdi2n11
+10.12.22.12 vdi2n12.hyper.lan vdi2n12
+10.12.22.13 vdi2n13.hyper.lan vdi2n13
+10.12.22.14 vdi2n14.hyper.lan vdi2n14
+10.12.22.15 vdi2n15.hyper.lan vdi2n15
+10.12.22.16 vdi2n16.hyper.lan vdi2n16
+10.12.22.17 vdi2n17.hyper.lan vdi2n17
+10.12.22.18 vdi2n18.hyper.lan vdi2n18
+10.12.22.19 vdi2n19.hyper.lan vdi2n19
+10.12.22.20 vdi2n20.hyper.lan vdi2n20
+10.12.22.21 vdi2n21.hyper.lan vdi2n21
+10.12.22.22 vdi2n22.hyper.lan vdi2n22
+10.12.22.23 vdi2n23.hyper.lan vdi2n23
+10.12.22.24 vdi2n24.hyper.lan vdi2n24
+10.12.22.25 vdi2n25.hyper.lan vdi2n25
+10.12.22.26 vdi2n26.hyper.lan vdi2n26
+10.12.22.27 vdi2n27.hyper.lan vdi2n27
+10.12.22.28 vdi2n28.hyper.lan vdi2n28
+10.12.22.29 vdi2n29.hyper.lan vdi2n29
+10.12.22.30 vdi2n30.hyper.lan vdi2n30
+10.12.22.31 vdi2n31.hyper.lan vdi2n31
+10.12.22.32 vdi2n32.hyper.lan vdi2n32
+10.12.22.33 vdi2n33.hyper.lan vdi2n33
+10.12.22.34 vdi2n34.hyper.lan vdi2n34
+10.12.22.35 vdi2n35.hyper.lan vdi2n35
+10.12.22.36 vdi2n36.hyper.lan vdi2n36
+10.12.22.37 vdi2n37.hyper.lan vdi2n37
+10.12.22.38 vdi2n38.hyper.lan vdi2n38
+10.12.22.39 vdi2n39.hyper.lan vdi2n39
+10.12.22.40 vdi2n40.hyper.lan vdi2n40
+10.12.22.41 vdi2n41.hyper.lan vdi2n41
+10.12.22.42 vdi2n42.hyper.lan vdi2n42
+10.12.22.43 vdi2n43.hyper.lan vdi2n43
+10.12.22.44 vdi2n44.hyper.lan vdi2n44
+10.12.22.45 vdi2n45.hyper.lan vdi2n45
+10.12.22.46 vdi2n46.hyper.lan vdi2n46
+10.12.22.47 vdi2n47.hyper.lan vdi2n47
+10.12.22.48 vdi2n48.hyper.lan vdi2n48
+
+10.17.21.1 vdi1n1.storage17.lan
+10.17.21.2 vdi1n2.storage17.lan
+10.17.21.3 vdi1n3.storage17.lan
+10.17.21.4 vdi1n4.storage17.lan
+10.17.21.5 vdi1n5.storage17.lan
+10.17.21.6 vdi1n6.storage17.lan
+10.17.21.7 vdi1n7.storage17.lan
+10.17.21.8 vdi1n8.storage17.lan
+10.17.21.9 vdi1n9.storage17.lan
+10.17.21.10 vdi1n10.storage17.lan
+10.17.21.11 vdi1n11.storage17.lan
+10.17.21.12 vdi1n12.storage17.lan
+10.17.21.13 vdi1n13.storage17.lan
+10.17.21.14 vdi1n14.storage17.lan
+10.17.21.15 vdi1n15.storage17.lan
+10.17.21.16 vdi1n16.storage17.lan
+10.17.21.17 vdi1n17.storage17.lan
+10.17.21.18 vdi1n18.storage17.lan
+10.17.21.19 vdi1n19.storage17.lan
+10.17.21.20 vdi1n20.storage17.lan
+10.17.21.21 vdi1n21.storage17.lan
+10.17.21.22 vdi1n22.storage17.lan
+10.17.21.23 vdi1n23.storage17.lan
+10.17.21.24 vdi1n24.storage17.lan
+10.17.21.25 vdi1n25.storage17.lan
+10.17.21.26 vdi1n26.storage17.lan
+10.17.21.27 vdi1n27.storage17.lan
+10.17.21.28 vdi1n28.storage17.lan
+10.17.21.29 vdi1n29.storage17.lan
+10.17.21.30 vdi1n30.storage17.lan
+10.17.21.31 vdi1n31.storage17.lan
+10.17.21.32 vdi1n32.storage17.lan
+10.17.21.33 vdi1n33.storage17.lan
+10.17.21.34 vdi1n34.storage17.lan
+10.17.21.35 vdi1n35.storage17.lan
+10.17.21.36 vdi1n36.storage17.lan
+10.17.21.37 vdi1n37.storage17.lan
+10.17.21.38 vdi1n38.storage17.lan
+10.17.21.39 vdi1n39.storage17.lan
+10.17.21.40 vdi1n40.storage17.lan
+10.17.21.41 vdi1n41.storage17.lan
+10.17.21.42 vdi1n42.storage17.lan
+10.17.21.43 vdi1n43.storage17.lan
+10.17.21.44 vdi1n44.storage17.lan
+10.17.21.45 vdi1n45.storage17.lan
+10.17.21.46 vdi1n46.storage17.lan
+10.17.21.47 vdi1n47.storage17.lan
+10.17.21.48 vdi1n48.storage17.lan
+10.17.22.1 vdi2n1.storage17.lan
+10.17.22.2 vdi2n2.storage17.lan
+10.17.22.3 vdi2n3.storage17.lan
+10.17.22.4 vdi2n4.storage17.lan
+10.17.22.5 vdi2n5.storage17.lan
+10.17.22.6 vdi2n6.storage17.lan
+10.17.22.7 vdi2n7.storage17.lan
+10.17.22.8 vdi2n8.storage17.lan
+10.17.22.9 vdi2n9.storage17.lan
+10.17.22.10 vdi2n10.storage17.lan
+10.17.22.11 vdi2n11.storage17.lan
+10.17.22.12 vdi2n12.storage17.lan
+10.17.22.13 vdi2n13.storage17.lan
+10.17.22.14 vdi2n14.storage17.lan
+10.17.22.15 vdi2n15.storage17.lan
+10.17.22.16 vdi2n16.storage17.lan
+10.17.22.17 vdi2n17.storage17.lan
+10.17.22.18 vdi2n18.storage17.lan
+10.17.22.19 vdi2n19.storage17.lan
+10.17.22.20 vdi2n20.storage17.lan
+10.17.22.21 vdi2n21.storage17.lan
+10.17.22.22 vdi2n22.storage17.lan
+10.17.22.23 vdi2n23.storage17.lan
+10.17.22.24 vdi2n24.storage17.lan
+10.17.22.25 vdi2n25.storage17.lan
+10.17.22.26 vdi2n26.storage17.lan
+10.17.22.27 vdi2n27.storage17.lan
+10.17.22.28 vdi2n28.storage17.lan
+10.17.22.29 vdi2n29.storage17.lan
+10.17.22.30 vdi2n30.storage17.lan
+10.17.22.31 vdi2n31.storage17.lan
+10.17.22.32 vdi2n32.storage17.lan
+10.17.22.33 vdi2n33.storage17.lan
+10.17.22.34 vdi2n34.storage17.lan
+10.17.22.35 vdi2n35.storage17.lan
+10.17.22.36 vdi2n36.storage17.lan
+10.17.22.37 vdi2n37.storage17.lan
+10.17.22.38 vdi2n38.storage17.lan
+10.17.22.39 vdi2n39.storage17.lan
+10.17.22.40 vdi2n40.storage17.lan
+10.17.22.41 vdi2n41.storage17.lan
+10.17.22.42 vdi2n42.storage17.lan
+10.17.22.43 vdi2n43.storage17.lan
+10.17.22.44 vdi2n44.storage17.lan
+10.17.22.45 vdi2n45.storage17.lan
+10.17.22.46 vdi2n46.storage17.lan
+10.17.22.47 vdi2n47.storage17.lan
+10.17.22.48 vdi2n48.storage17.lan
+

@@ -1,0 +1,4 @@
+#!/bin/bash
+
+find /var/lib/rrdcached/db/pve2-vm/ -type f -mtime +50 -delete
+

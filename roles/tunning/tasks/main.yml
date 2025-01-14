@@ -1,0 +1,19 @@
+# task for auto-clean rrd vm statistics
+
+- name: clean old rrd files every day
+  copy: 
+    src: files/clean-rrdcached 
+    dest: /etc/cron.daily/clean-rrdcached
+    owner: root 
+    group: root 
+    mode: 0755
+
+- name: Copy lvm.conf (recommended after upgrade to pve8)
+  copy: 
+    src: files/lvm.conf
+    dest: /etc/lvm/lvm.conf
+    owner: root 
+    group: root 
+    mode: 0644
+  when: pve_version >= 8
+
